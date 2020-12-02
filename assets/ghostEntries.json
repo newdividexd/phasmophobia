@@ -1,0 +1,216 @@
+[
+	{
+		"name": "Spirit",
+		"evidence": [
+			"fingerprints",
+			"writing",
+			"spirit_box"
+		],
+		"info": {
+			"weaknesses": "Smudge sticks stop hunts for [+30,1] seconds",
+			"data": [
+				"Most common type of ghost",
+				"Has no special behaviours"
+			]
+		},
+		"quote": "${data[0]}"
+	},
+	{
+		"name": "Wraith",
+		"evidence": [
+			"fingerprints",
+			"freezing",
+			"spirit_box"
+		],
+		"info": {
+			"power": "Teleport to player in ghost room, [emf,0]",
+			"strengths": [
+				"Leaves no footsteps, and steps less often",
+				"Sees through doors and lockers",
+				"Can travel through walls and locked doors"
+			],
+			"weaknesses": "Contact with salt stops ongoing hunts",
+			"data": "Salt will increase ghost activity permanently"
+		},
+		"quote": "${strengths[1]}"
+	},
+	{
+		"name": "Phantom",
+		"evidence": [
+			"emf_5",
+			"freezing",
+			"orbs"
+		],
+		"info": {
+			"power": "Teleport to random player masked as a teammate without gear, [emf,0]",
+			"strengths": "Looking at a phantom lowers sanity [2x,-1] faster",
+			"weaknesses": "Taking a photo of the phantom makes it banish"
+		},
+		"quote": "${weaknesses}"
+	},
+	{
+		"name": "Poltergeist",
+		"evidence": [
+			"fingerprints",
+			"orbs",
+			"spirit_box"
+		],
+		"info": {
+			"strengths": [
+				"Able to interact with more objects / doors at once",
+				"Objects dropped and not seen lower sanity"
+			],
+			"weaknesses": "Rooms with no objects",
+			"data": "It seems that they have great capacity to roam, but this maybe is because its apparent when it does"
+		},
+		"quote": "${strengths[0]}"
+	},
+	{
+		"name": "Banshee",
+		"evidence": [
+			"emf_5",
+			"fingerprints",
+			"freezing"
+		],
+		"info": {
+			"power": "Path find to target, if target was seen, hunt in [~20s,0]",
+			"strengths": "Can hunt without lower sanity",
+			"weaknesses": "Crucifix area of effect [+2m,2]",
+			"data": "Targets one player at a time, until is killed or leaves the building"
+		},
+		"quote": "${data}"
+	},
+	{
+		"name": "Jinn",
+		"evidence": [
+			"emf_5",
+			"orbs",
+			"spirit_box"
+		],
+		"info": {
+			"data": [
+				"Interacts with electronics more than other ghosts",
+				"Very chill if nobody is in the ghost room"
+			]
+		},
+		"conditionals": {
+			"condition": "the breaker is ${case}",
+			"cases": [
+				{
+					"value": "on",
+					"result": "Faster in hunts if targets are far"
+				}
+			]
+		},
+		"quote": "${data[1]}"
+	},
+	{
+		"name": "Mare",
+		"evidence": [
+			"freezing",
+			"orbs",
+			"spirit_box"
+		],
+		"info": {
+			"data": [
+				"More active when lights are off",
+				"Likes to switch things off to avoid light"
+			]
+		},
+		"conditionals": {
+			"condition": "lights are ${case}",
+			"cases": [
+				{
+					"value": "on",
+					"result": "Hunt modifier [-10,1]"
+				},
+				{
+					"value": "off",
+					"result": "Hunt modifier [+10,-1]"
+				}
+			]
+		},
+		"quote": "${data[0]}"
+	},
+	{
+		"name": "Revenant",
+		"evidence": [
+			"emf_5",
+			"fingerprints",
+			"writing"
+		],
+		"info": {
+			"data": "Will go for the closest player instead of focusing one"
+		},
+		"conditionals": {
+			"condition": "it ${case} you",
+			"cases": [
+				{
+					"value": "sees",
+					"result": "It is very fast"
+				},
+				{
+					"value": "doesnt see",
+					"result": "It is very slow"
+				}
+			]
+		},
+		"quote": "Very fast if it sees you"
+	},
+	{
+		"name": "Shade",
+		"evidence": [
+			"emf_5",
+			"orbs",
+			"writing"
+		],
+		"info": {
+			"strengths": "Shy, harder to get evidence",
+			"weaknesses": [
+				"Won't hunt if players are not alone",
+				"Prefers to hunt players by themselves"
+			]
+		},
+		"quote": "${weaknesses[0]}"
+	},
+	{
+		"name": "Demon",
+		"evidence": [
+			"freezing",
+			"writing",
+			"spirit_box"
+		],
+		"info": {
+			"power": "Permanent hunt modifier [+50,-2]",
+			"weaknesses": "Asking ouija's questions won't lower sanity"
+		},
+		"quote": "${power}"
+	},
+	{
+		"name": "Yurei",
+		"evidence": [
+			"freezing",
+			"orbs",
+			"writing"
+		],
+		"info": {
+			"strengths": "Higher sanity impact",
+			"weaknesses": "Smudging ghost room will make the yurei leave for [90s,1]"
+		},
+		"quote": "${strengths}"
+	},
+	{
+		"name": "Oni",
+		"evidence": [
+			"emf_5",
+			"writing",
+			"spirit_box"
+		],
+		"info": {
+			"strengths": "Activity and hunts correlate to the amount of players near the oni",
+			"weaknesses": "Easier to identify if grouped",
+			"data": "Will yeet shit around at fast speeds"
+		},
+		"quote": "${data}"
+	}
+]
